@@ -42,7 +42,10 @@ const USERS = [
 
 function gateKeeper(req, res, next) {
   const {user, pass} = Object.assign(
-    {user: null, pass: null}, queryString.parse(req.get('x-username-and-password')))
+    { user: null, 
+      pass: null
+    }, 
+    queryString.parse(req.get('x-username-and-password')))
   
   req.user = USERS.find(
     (usr, index) => usr.userName === user && usr.password === pass);
